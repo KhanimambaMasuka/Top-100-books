@@ -1,8 +1,7 @@
-function Title(props){
-    const bookTitle = props.title;
+function Title({title}){
     return (
         <div>
-            <h4 style = {{color: 'white'}}>{bookTitle}</h4>
+            <h4 style = {{color: 'white'}}>{title}</h4>
         </div>
     )
 }

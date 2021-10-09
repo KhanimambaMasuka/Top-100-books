@@ -1,10 +1,9 @@
 import './styling/Book.css'
 
-function Author(props){
-    const authorName = props.author;
+function Author({author}){
     return (
         <div>
-            <h4 style ={{color: 'white',fontSize: '0.5rem'}}>{authorName}</h4>
+            <h4 style ={{color: 'white',fontSize: '0.5rem'}}>{author}</h4>
         </div>
     )
 }

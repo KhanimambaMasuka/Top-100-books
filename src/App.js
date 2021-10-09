@@ -36,7 +36,7 @@ function App() {
     return (
     <section className = 'booklist'>
         {books.map((book,index)=>{
-        return <Book key = {index} bookImage = {book.imageLink} authorName = {book.author} bookTitle = {book.title}/>
+            return <Book key = {index} book = {book}/>
         })}
     </section>
   );
