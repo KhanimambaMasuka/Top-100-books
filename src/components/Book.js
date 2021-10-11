@@ -5,14 +5,15 @@ function Book({book}){
     const {imageLink,title,author,link} = book
 
     const onBookCLick = () => {
-        //alert(`Hello ${books.}`)
-        //console.log(link)
         window.open(link)
     }
 
     return(
       <article className="book" onClick = {onBookCLick}>
-          <img src={imageLink} alt = ""/>
+          <div className='bookImageContainer'>
+              <img className = 'bookImage' src={imageLink} alt = ""/>
+          </div>
+
           <Title title={title}/>
           <Author author={author}/>
       </article>
