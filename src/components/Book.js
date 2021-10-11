@@ -13,7 +13,6 @@ function Book({book}){
           <div className='bookImageContainer'>
               <img className = 'bookImage' src={imageLink} alt = ""/>
           </div>
-
           <Title title={title}/>
           <Author author={author}/>
       </article>
