@@ -2,17 +2,14 @@ import Author from './Author'
 import Title from './Title'
 
 function Book({book}){
-    const {imageLink,title,author,link} = book;
+    const {imageLink,title,author,link} = book
 
     const onBookCLick = () => {
-        window.open(link);
-    }
-    const onMouseOverBook = () =>{
-        console.log('Mouse Over Book');
+        window.open(link)
     }
 
     return(
-      <article className="book" onClick = {onBookCLick} onMouseOver={onMouseOverBook}>
+      <article className="book" onClick = {onBookCLick}>
           <div className='bookImageContainer'>
               <img className = 'bookImage' src={imageLink} alt = ""/>
           </div>
