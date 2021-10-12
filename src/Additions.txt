@@ -1,0 +1,2 @@
+Re-render page after search results
+Add on Mouse over details
