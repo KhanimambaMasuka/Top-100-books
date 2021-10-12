@@ -9,18 +9,14 @@ function Search({books}){
         console.log(event.target.value);
     }
     const onSearchButtonClick = ()=>{
-        //console.log(books)
         const booksFound = books.find(book=>book.title === searchTerm);
         console.log(booksFound);
         return(
                 <article className = 'booklist'>
                 {
                     booksFound
-                    /*books.map((book,index)=>{
-                        return <Book key = {index} book = {book} />
-                    })*/
                 }
-            </article>
+                </article>
         )
     }
 
