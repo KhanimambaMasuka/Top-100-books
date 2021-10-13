@@ -10,12 +10,9 @@ function Search({books,setFoundBooks}){
 
     const OnSearchChange = (event)=>{
         setSearchTerm(event.target.value);
-        console.log(event.target.value);
     }
     const onSearchButtonClick = ()=>{
-        console.log(filterBooks());
         setFoundBooks(filterBooks());
-        //console.log('HI');
     }
     useEffect(()=>searchTerm === null || searchTerm === "" ? setFoundBooks(books) : setFoundBooks(filterBooks()),[searchTerm,books,filterBooks,setFoundBooks])
     return (
