@@ -7,11 +7,16 @@ function Search({books,setFoundBooks}){
     const onSearchChange = (event)=>{
         setSearchTerm(event.target.value);
         console.log(event.target.value);
+        if(event.target.value === null || event.target.value === "")
+        {
+            setFoundBooks(books);
+        }
     }
     const onSearchButtonClick = ()=>{
         const booksFounds = books.filter(book=>book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
         console.log(booksFounds);
         setFoundBooks(booksFounds);
+        //console.log('HI');
 
     }
 

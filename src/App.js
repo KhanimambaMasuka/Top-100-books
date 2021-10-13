@@ -25,6 +25,7 @@ function App() {
             let data = await callGithub();
             data = changeImageLink(data);
             setBooks(data);
+            setFoundBooks(data);
         }
         fetchData();
     },[])
@@ -40,7 +41,6 @@ function App() {
         </article>
     </section>
   );
-    //setFoundBooks(books)
 }
 
 export default App;
