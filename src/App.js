@@ -6,7 +6,7 @@ async function callGithub() {
     const response = await fetch('https://raw.githubusercontent.com/benoitvallon/100-best-books/5e716ee7ef003309cb68a317487ded6faaa421c6/books.json')
     return await response.json()
 }
-async function changeImageLink(data) {
+const changeImageLink = (data) => {
     data.forEach(
         (book)=>
         {
@@ -18,11 +18,12 @@ async function changeImageLink(data) {
 
 function App() {
     const [books,setBooks] = useState([])
+    const [foundBooks,setFoundBooks] = useState([])
 
     useEffect( ()=>{
         async function fetchData() {
             let data = await callGithub();
-            data = await changeImageLink(data);
+            data = changeImageLink(data);
             setBooks(data);
         }
         fetchData();
@@ -30,15 +31,16 @@ function App() {
 
     return (
     <section >
-        <Search books = {books}/>
+        <Search books = {books} setFoundBooks={setFoundBooks}/>
         <br/>
         <article className = 'booklist'>
-            {books.map((book,index)=>{
+            {foundBooks.map((book,index)=>{
                 return <Book key = {index} book = {book} />
             })}
         </article>
     </section>
   );
+    //setFoundBooks(books)
 }
 
 export default App;

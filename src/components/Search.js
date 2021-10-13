@@ -1,7 +1,7 @@
 import {useState} from "react";
 import './styling/Search.css'
 
-function Search({books}){
+function Search({books,setFoundBooks}){
     const [searchTerm,setSearchTerm] = useState(null);
 
     const onSearchChange = (event)=>{
@@ -9,15 +9,10 @@ function Search({books}){
         console.log(event.target.value);
     }
     const onSearchButtonClick = ()=>{
-        const booksFound = books.find(book=>book.title === searchTerm);
-        console.log(booksFound);
-        return(
-                <article className = 'booklist'>
-                {
-                    booksFound
-                }
-                </article>
-        )
+        const booksFounds = books.filter(book=>book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+        console.log(booksFounds);
+        setFoundBooks(booksFounds);
+
     }
 
     return (
