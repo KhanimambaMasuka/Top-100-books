@@ -31,7 +31,7 @@ function App() {
     },[])
 
     return (
-    <section >
+    <section onMouseOver={()=>console.log('Mouse Over Book')}>{/*placholder*/}
         <Search books = {books} setFoundBooks={setFoundBooks}/>
         <br/>
         <article className = 'booklist'>
