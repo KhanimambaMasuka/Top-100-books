@@ -2,9 +2,12 @@ import Book from './components/Book';
 import Search from './components/Search';
 import {useEffect, useState} from "react";
 
-async function callGithub() {
+async function callGithub(data,setData,setFiltered) {
     const response = await fetch('https://raw.githubusercontent.com/benoitvallon/100-best-books/5e716ee7ef003309cb68a317487ded6faaa421c6/books.json')
-    return await response.json()
+    data = await response.json()
+    data = changeImageLink(data);
+    setData(data);
+    setFiltered(data);
 }
 const changeImageLink = (data) => {
     data.forEach(
@@ -18,27 +21,21 @@ const changeImageLink = (data) => {
 
 function App() {
     const [books,setBooks] = useState([])
-    const [foundBooks,setFoundBooks] = useState([])
+    const [filteredBooks,setFilteredBooks] = useState([])
 
     useEffect( ()=>{
-        async function fetchData() {
-            let data = await callGithub();
-            data = changeImageLink(data);
-            setBooks(data);
-            setFoundBooks(data);
-        }
-        fetchData();
-    },[])
+        callGithub(books,setBooks,setFilteredBooks);
+    },[])// eslint-disable-line
 
     return (
-    <section onMouseOver={()=>console.log('Mouse Over Book')}>{/*placholder*/}
-        <Search books = {books} setFoundBooks={setFoundBooks}/>
+    <section onMouseOver={()=>console.log('Mouse Over Book')}>{/*placeholder*/}
+        <Search books = {books} setFoundBooks={setFilteredBooks}/>
         <br/>
-        <article className = 'booklist'>
-            {foundBooks.map((book,index)=>{
+        <div className = 'booklist'>
+            {filteredBooks.map((book,index)=>{
                 return <Book key = {index} book = {book} />
             })}
-        </article>
+        </div>
     </section>
   );
 }

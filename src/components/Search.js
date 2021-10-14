@@ -6,6 +6,7 @@ function Search({books,setFoundBooks}){
 
     const filterBooks = useCallback(() =>{
         return books.filter(book => book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+        //if empty activate search to outside world
     },[searchTerm,books])
 
     const OnSearchChange = (event)=>{
