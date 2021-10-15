@@ -1,7 +1,7 @@
 function Title({title}){
     return (
         <div>
-            <h4 style = {{color: 'white'}}>{title}</h4>
+            <h4 style = {{color: 'black'}}>{title}</h4>
         </div>
     )
 }
